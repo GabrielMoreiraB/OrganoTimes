@@ -14,7 +14,7 @@ function App() {
     },
     {
       nome: 'Furia',
-      corPrimaria: '#000000',
+      corPrimaria: '#040404',
       corSecundaria: '#B1AFB0'
     },
     {
@@ -36,6 +36,11 @@ function App() {
 
   const [colaboradores, setColaboradores] = useState([])
 
+  function deletarColaborador(){
+    console.log('del col')
+  }
+
+
   const aoNovoColaboradorAdicionado = (colaborador) => {
     setColaboradores([...colaboradores, colaborador])
   }
@@ -51,6 +56,7 @@ function App() {
         corPrimaria={time.corPrimaria} 
         corSecundaria={time.corSecundaria} 
         colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+        aoDeletar={deletarColaborador}
       />)}   
 
     </div>

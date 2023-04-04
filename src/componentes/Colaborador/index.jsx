@@ -1,7 +1,10 @@
 import './Colaborador.css'
+import {FaWindowClose} from 'react-icons/fa'
 
-const Colaborador = ({ nome, imagem, cargo, corDeFundo }) => {
+
+const Colaborador = ({ nome, imagem, cargo, corDeFundo,aoDeletar }) => {
     return (<div className='colaborador'>
+        <FaWindowClose size={25} className="deletar" onClick={aoDeletar}/>
         <div className='cabecalho' style={{ backgroundColor: corDeFundo }}>
             <img src={imagem} alt={nome}/>
         </div>
