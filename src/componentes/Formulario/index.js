@@ -67,7 +67,8 @@ const Formulario = (props) => {
       </form>
       <form onSubmit={(e)=> {
         e.preventDefault();
-        props.cadastrarTime({nome: nomeTime, cor1: corTime1, cor2: corTime2})
+        props.cadastrarTime({nome: nomeTime, corPrimaria: corTime1, corSecundaria: corTime2})
+        console.log(nomeTime, corTime1, corTime2)
         setNomeTime("")
         setCorTime1("")
         setCorTime2("")
@@ -82,6 +83,7 @@ const Formulario = (props) => {
         />
         <CampoTexto 
             obrigatorio
+            type="color"
             label="cor1" 
             placeholder="Digite a cor primaria do time"
             valor = {corTime1}
@@ -89,6 +91,7 @@ const Formulario = (props) => {
         />
         <CampoTexto 
             obrigatorio
+            type="color"
             label="cor2" 
             placeholder="Digite a cor Secundaria do time"
             valor = {corTime2}
