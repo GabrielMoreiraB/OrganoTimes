@@ -11,6 +11,9 @@ const Formulario = (props) => {
   const [cargo, setCargo] = useState('');
   const [imagem, setImagem] = useState('');
   const [time, setTime] = useState('');
+  const [nomeTime, setNomeTime] = useState('');
+  const [corTime1, setCorTime1] = useState('');
+  const [corTime2, setCorTime2] = useState('');
 
 
   const aoSalvar = (evento) => {
@@ -25,6 +28,7 @@ const Formulario = (props) => {
     setCargo("")
     setImagem("")
     setTime("")
+    
   }
 
 
@@ -60,6 +64,37 @@ const Formulario = (props) => {
             aoAlterado={time => setTime(time)}
         />
         <Botao>Criar Card</Botao>
+      </form>
+      <form onSubmit={(e)=> {
+        e.preventDefault();
+        props.cadastrarTime({nome: nomeTime, cor1: corTime1, cor2: corTime2})
+        setNomeTime("")
+        setCorTime1("")
+        setCorTime2("")
+      }}>
+        <h2>Preencha os dados para criar um novo time.</h2>
+        <CampoTexto 
+            obrigatorio
+            label="Nome" 
+            placeholder="Digite o nome do time" 
+            valor = {nomeTime}
+            aoAlterado ={valor => setNomeTime(valor)}
+        />
+        <CampoTexto 
+            obrigatorio
+            label="cor1" 
+            placeholder="Digite a cor primaria do time"
+            valor = {corTime1}
+            aoAlterado ={valor => setCorTime1(valor)} 
+        />
+        <CampoTexto 
+            obrigatorio
+            label="cor2" 
+            placeholder="Digite a cor Secundaria do time"
+            valor = {corTime2}
+            aoAlterado ={valor => setCorTime2(valor)} 
+        />
+        <Botao>Criar novo time</Botao>
       </form>
     </section>
   );
